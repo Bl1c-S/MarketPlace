@@ -1,0 +1,48 @@
+﻿<Window x:Class="WPF_Market_Place.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:WPF_Market_Place.Views"
+        xmlns:vms="clr-namespace:WPF_Market_Place.ViewModel.SingInViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Style="{StaticResource ColorBG_Fon}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0"  Grid.Column="0" Style="{StaticResource ColorBG_1}">
+            <Button Style="{StaticResource CenterBTText}"
+                Content="Home" FontSize="35"
+                Background="#FF58545B" BorderBrush="#FF58545B"/>
+        </Grid>
+
+        <Grid Grid.Row="0" Grid.Column="2" Style="{StaticResource ColorBG_1}">
+            <Button Style="{StaticResource CenterBTText}"
+                Content="Sing IN" FontSize="35"
+                Background="#FF58545B" BorderBrush="#FF58545B"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="0" Style="{StaticResource ColorBG_2}">
+
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="2" Style="{StaticResource ColorBG_2}">
+            <Grid.Resources>
+                <DataTemplate DataType="{x:Type vms:SingInViewModel}">
+                    <views:SingInView/>
+                </DataTemplate>
+            </Grid.Resources>
+            
+            <ContentControl Content="{Binding CurrentViewModel}" />
+        </Grid>
+
+    </Grid>
+</Window>
